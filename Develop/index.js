@@ -3,6 +3,8 @@ const inquirer = require('inquirer');
 const fs = require('fs');
 const generateHtml = require('./utils/generateHtml');
 
+
+
 const questions = [
     {
         type: 'input',
@@ -84,9 +86,28 @@ const internQuestions = [
 
 inquirer.prompt(questions)
 .then((response) => {
-    fs.writeFile('index.html', generateHtml(response), (err) => {
-        return err
-        ? console.error(err)
-        : console.log('File written successfully!');
-    })
+    fs.writeFile('index.html', generateHtml(response), () => {
+        
+    if( `${response.optionmenu}` === 'Add an engineer'){
+        inquirer.prompt(engineerQuestions)
+        .then((response) => {
+            fs.appendFile('index.html', generateHtml(response), () => {
+                return inquirer.prompt(questions[4]);
+            })
+        })
+        //not working correctly yet
+    } else if(`${response.optionmenu}` === 'Add ad intern') {
+        inquirer.prompt(internQuestions)
+        .then((response) => {
+            fs.appendFile('index.html', generateHtml(response), (err) => {
+                return err
+                ? console.error(err)
+                : console.log('File written successfully!')
+            })
+        })
+    } else { 
+        console.log('Your have finished building your team!');
+
+    }
+})
 });

@@ -8,8 +8,19 @@ function generateHtml(response){
     
     Office number:${response.officenum}
     `;
-}
+    
+};
 
+function engineer(response){
+    return ` Engineer name: ${response.engname}
+    
+    Engineer ID: ${response.engid}
+    
+    Engineer email: ${response.engemail}
+    
+    Engineer Github username: ${response.enggithub}
+    `;
+}
 
 //export file
 module.exports = generateHtml;
