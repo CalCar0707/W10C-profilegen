@@ -1,5 +1,7 @@
+//link to external apps
 const inquirer = require('inquirer');
 const fs = require('fs');
+//const generateHtml = require('./utils/generateHtml');
 
 const questions = [
     {
@@ -78,3 +80,13 @@ const internQuestions = [
         message: 'Please provide the intern\'s school:'
     }
 ];
+
+
+inquirer.prompt(questions)
+//.then((response) => {
+  //  fs.writeFile('index.html', generateHtml(response), (err) => {
+    //    return err
+      //  ? console.error(err)
+       // : console.log('File written successfully!');
+    //})
+//});
