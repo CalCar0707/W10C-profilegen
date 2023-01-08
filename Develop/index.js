@@ -1,17 +1,17 @@
 //link to external apps
 const inquirer = require('inquirer');
 const fs = require('fs');
-//const generateHtml = require('./utils/generateHtml');
+const generateHtml = require('./utils/generateHtml');
 
 const questions = [
     {
         type: 'input',
-        name: 'manager-name',
+        name: 'managername',
         message: 'Please provide the team manager\'s name:'
     },
     {
         type: 'input',
-        name: 'employee-id',
+        name: 'employeeid',
         message: 'Please provide the employee ID:'
     },
     {
@@ -21,12 +21,12 @@ const questions = [
     },
     {
         type: 'input',
-        name: 'office-num',
+        name: 'officenum',
         message: 'Please provide the office number:'
     },
     {
         type: 'checkbox',
-        name: 'option-menu',
+        name: 'optionmenu',
         message: 'What would you like to do next?',
         choices: [
             'Add an engineer',
@@ -83,10 +83,10 @@ const internQuestions = [
 
 
 inquirer.prompt(questions)
-//.then((response) => {
-  //  fs.writeFile('index.html', generateHtml(response), (err) => {
-    //    return err
-      //  ? console.error(err)
-       // : console.log('File written successfully!');
-    //})
-//});
+.then((response) => {
+    fs.writeFile('index.html', generateHtml(response), (err) => {
+        return err
+        ? console.error(err)
+        : console.log('File written successfully!');
+    })
+});
