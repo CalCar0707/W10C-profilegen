@@ -22,5 +22,16 @@ function engineer(response){
     `;
 }
 
+function intern(response){
+    return `Intern name: ${response.intname}
+    
+    Intern ID: ${response.intid}
+    
+    Intern email: ${response.intemail}
+    
+    Intern school: ${response.intschool}
+    `;
+}
+
 //export file
 module.exports = generateHtml;

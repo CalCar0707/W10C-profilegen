@@ -63,7 +63,7 @@ const engineerQuestions = [
 const internQuestions = [
     {
         type: 'input',
-        name: 'intgname',
+        name: 'intname',
         message: 'Please provide the name of the intern:',
     },
     {
@@ -95,18 +95,19 @@ inquirer.prompt(questions)
                 return inquirer.prompt(questions[4]);
             })
         })
-        //not working correctly yet
-    } else if(`${response.optionmenu}` === 'Add ad intern') {
+        // continues with either engineer or intern questions first time, does not loop
+    } else if( `${response.optionmenu}` === 'Add an intern'){
         inquirer.prompt(internQuestions)
         .then((response) => {
-            fs.appendFile('index.html', generateHtml(response), (err) => {
-                return err
-                ? console.error(err)
-                : console.log('File written successfully!')
+            fs.appendFile('index.html', generateHtml(response), () => {
+                return inquirer.prompt(questions[4]);
+                //return err
+                //? console.error(err)
+                //: console.log('File written successfully!')
             })
         })
     } else { 
-        console.log('Your have finished building your team!');
+        return console.log('You have finished building your team!');
 
     }
 })
