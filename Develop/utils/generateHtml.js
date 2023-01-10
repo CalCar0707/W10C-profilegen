@@ -5,6 +5,8 @@ function generateHtml(response){
     Employee ID: ${response.employeeid}
     
     Email address: ${response.email}
+    //mailto
+    //<a href="mailto:johndoe@fakeemail.com">Example mailto link</a>
     
     Office number:${response.officenum}
     `;

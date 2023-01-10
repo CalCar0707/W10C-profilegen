@@ -87,12 +87,16 @@ const internQuestions = [
 inquirer.prompt(questions)
 .then((response) => {
     fs.writeFile('index.html', generateHtml(response), () => {
-        
-    if( `${response.optionmenu}` === 'Add an engineer'){
+        if( `${response.optionmenu}` === 'Add an engineer'){
         inquirer.prompt(engineerQuestions)
         .then((response) => {
             fs.appendFile('index.html', generateHtml(response), () => {
-                return inquirer.prompt(questions[4]);
+                return inquirer.prompt(questions[4])
+                .then((response) => {
+                    fs.appendFile('index.html', generateHtml(response), () => {
+                        
+                    })
+                })
             })
         })
         // continues with either engineer or intern questions first time, does not loop
@@ -100,14 +104,19 @@ inquirer.prompt(questions)
         inquirer.prompt(internQuestions)
         .then((response) => {
             fs.appendFile('index.html', generateHtml(response), () => {
-                return inquirer.prompt(questions[4]);
-                //return err
-                //? console.error(err)
-                //: console.log('File written successfully!')
+                return inquirer.prompt(questions[4])
+                .then((response) => {
+                    fs.appendFile('index.html', generateHtml(response), () => {
+
+                    })
+                });
+               
             })
         })
     } else { 
-        return console.log('You have finished building your team!');
+        return err
+        ? console.error(err)
+        : console.log('You have finished building your team!');
 
     }
 })
