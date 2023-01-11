@@ -2,7 +2,8 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
 const generateHtml = require('./utils/generateHtml');
-
+const generateEngineer = require('./utils/generateEngineer');
+const generateIntern = require('./utils/generateIntern');
 
 
 const questions = [
@@ -46,7 +47,7 @@ const engineerQuestions = [
     {
         type: 'input',
         name: 'engid',
-        message: 'Please provide the engineer\'s ID'
+        message: 'Please provide the engineer\'s ID:'
     },
     {
         type: 'email',
@@ -86,32 +87,32 @@ const internQuestions = [
 
 inquirer.prompt(questions)
 .then((response) => {
-    fs.writeFile('index.html', generateHtml(response), () => {
+    fs.writeFile('index.html', generateHtml(response), (err) => {
         if( `${response.optionmenu}` === 'Add an engineer'){
         inquirer.prompt(engineerQuestions)
         .then((response) => {
-            fs.appendFile('index.html', generateHtml(response), () => {
+            fs.appendFile('index.html', generateEngineer(response), () => {
                 return inquirer.prompt(questions[4])
-                .then((response) => {
-                    fs.appendFile('index.html', generateHtml(response), () => {
-                        return 
-                    })
-                })
+                //.then((response) => {
+                  //  fs.appendFile('index.html', generateHtml(response), () => {
+                    //    return 
+                    //})
+                //})
             })
         })
         // continues with either engineer or intern questions first time, does not loop
     } else if( `${response.optionmenu}` === 'Add an intern'){
         inquirer.prompt(internQuestions)
         .then((response) => {
-            fs.appendFile('index.html', generateHtml(response), () => {
+            fs.appendFile('index.html', generateIntern(response), () => {
                 return inquirer.prompt(questions[4])
-                .then((response) => {
-                    fs.appendFile('index.html', generateHtml(response), () => {
+                //.then((response) => {
+                  //  fs.appendFile('index.html', generateHtml(response), () => {
 
-                    })
+                    //})
                 });
                
-            })
+           // })
         })
     } else { 
         return err
