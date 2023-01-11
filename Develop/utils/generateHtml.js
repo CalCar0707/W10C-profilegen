@@ -1,7 +1,19 @@
 
 //function to generate roster
 function generateHtml(response){
-    return `Team Manager: ${response.managername}
+    return `
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./utils/styles.css">
+    <title>My Team</title>
+</head>
+
+    <h1> My Team</h1>
+
+    Team Manager: ${response.managername}
     
     Employee ID: ${response.employeeid}
     
