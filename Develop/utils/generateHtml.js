@@ -4,9 +4,8 @@ function generateHtml(response){
     
     Employee ID: ${response.employeeid}
     
-    Email address: ${response.email}
-    //mailto
-    //<a href="mailto:johndoe@fakeemail.com">Example mailto link</a>
+    Email address: <a href="mailto:${response.email}">${response.email}</a>
+    
     
     Office number:${response.officenum}
     `;
@@ -18,7 +17,7 @@ function engineer(response){
     
     Engineer ID: ${response.engid}
     
-    Engineer email: ${response.engemail}
+    Engineer email: <a href="mailto:${response.engemail}">${response.engemail}</a>
     
     Engineer Github username: ${response.enggithub}
     `;
@@ -29,7 +28,7 @@ function intern(response){
     
     Intern ID: ${response.intid}
     
-    Intern email: ${response.intemail}
+    Intern email: <a href="mailto:${response.intemail}">${response.intemail}</a>
     
     Intern school: ${response.intschool}
     `;

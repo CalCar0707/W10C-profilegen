@@ -5,11 +5,11 @@ describe('Employee test', () => {
     describe('Initialization', () => {
         it('should return employee name', () => {
             const inputString = `${response.managername}`;
-            
+
 
             const employee = new Employee();
 
-            expect('')
+            expect(``)
         })
     })
 })

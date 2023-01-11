@@ -94,7 +94,7 @@ inquirer.prompt(questions)
                 return inquirer.prompt(questions[4])
                 .then((response) => {
                     fs.appendFile('index.html', generateHtml(response), () => {
-                        
+                        return 
                     })
                 })
             })
