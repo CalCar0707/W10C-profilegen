@@ -1,12 +1,12 @@
 function generateEngineer(response){
-    return ` Engineer name: ${response.engname}
+    return ` <section class="infocard" id="engineer"><h2>Engineer name:</h2> ${response.engname}
     
-    Engineer ID: ${response.engid}
+    <h3>Engineer ID:</h3> ${response.engid}
     
-    Engineer email: <a href="mailto:${response.engemail}">${response.engemail}</a>
+    <h4>Engineer email:</h4> <a href="mailto:${response.engemail}">${response.engemail}</a>
     
-    Engineer Github username: <a href="https://github.com/${response.enggithub}">${response.enggithub}</a>
-    `;
+    <h4>Engineer Github username:</h4> <a href="https://github.com/${response.enggithub}">${response.enggithub}</a>
+    </section>`;
 };
 
 module.exports = generateEngineer;

@@ -13,14 +13,14 @@ function generateHtml(response){
 
     <h1> My Team</h1>
 
-    Team Manager: ${response.managername}
+   <section class="infocard" id="manager"> <h2>Team Manager:</h2> ${response.managername}
     
-    Employee ID: ${response.employeeid}
+    <h3>Employee ID:</h3> ${response.employeeid}
     
-    Email address: <a href="mailto:${response.email}">${response.email}</a>
+    <h4>Email address:</h4> <a href="mailto:${response.email}">${response.email}</a>
     
     
-    Office number:${response.officenum}
+    <h4>Office number:</h4>${response.officenum} </section>
     `;
     
 };

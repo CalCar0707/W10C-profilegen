@@ -1,5 +1,23 @@
 h1 {
     display: block;
-    background-color: light blue;
+    background-color: darkcyan;
     text-align: center;
+    height: 50px;
+    padding: 20px;
+    font-size: 40px;
+}
+
+.infocard {
+    display: inline-block;
+    width: 200px;
+    height: 350px;
+    padding: 50px;
+    margin: 75px;
+    border-style: dotted;
+    border-radius: 15px;
+    border-color: coral;
+}
+
+h2 {
+    
 }

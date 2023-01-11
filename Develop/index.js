@@ -87,7 +87,7 @@ const internQuestions = [
 
 inquirer.prompt(questions)
 .then((response) => {
-    fs.writeFile('index.html', generateHtml(response), (err) => {
+    fs.writeFile('index.html', generateHtml(response), () => {
         if( `${response.optionmenu}` === 'Add an engineer'){
         inquirer.prompt(engineerQuestions)
         .then((response) => {
@@ -114,11 +114,45 @@ inquirer.prompt(questions)
                
            // })
         })
-    } else { 
-        return err
-        ? console.error(err)
-        : console.log('You have finished building your team!');
+    } else if( `${response.optionmenu}` === 'Finish building my team') { 
+        return console.log('You have finished building your team!');
 
     }
 })
 });
+
+//function mainQuestions(engQuestions, intQuestions){
+    //inquirer.prompt(questions)
+//.then((response) => {
+  //  fs.writeFile('index.html', generateHtml(response), () => {
+      //  return err
+        //? console.error(err)
+        //: console.log('You have finished building your team!');
+
+//})
+//})
+//};
+
+//function engQuestions(response){
+  //  if( `${response.optionmenu}` === 'Add an engineer'){
+    //    inquirer.prompt(engineerQuestions)
+      //  .then((response) => {
+        //    fs.appendFile('index.html', generateEngineer(response), () => {
+          //      return inquirer.prompt(questions[4])
+
+//})
+  //      })
+    //}
+//};
+
+//function intQuestions(response){
+  //  if( `${response.optionmenu}` === 'Add an intern'){
+    //    inquirer.prompt(internQuestions)
+      //  .then((response) => {
+        //    fs.appendFile('index.html', generateIntern(response), () => {
+          //      return inquirer.prompt(questions[4])   
+//})
+  //      })
+    //}
+//};
+

@@ -1,11 +1,11 @@
 function generateIntern(response){
-    return `Intern name: ${response.intname}
+    return `<section class="infocard" id="intern><h2>Intern name:</h2> ${response.intname}
     
-    Intern ID: ${response.intid}
+    <h3>Intern ID:</h3> ${response.intid}
     
-    Intern email: <a href="mailto:${response.intemail}">${response.intemail}</a>
+    <h4>Intern email:</h4> <a href="mailto:${response.intemail}">${response.intemail}</a>
     
-    Intern school: ${response.intschool}
+    <h4>Intern school:</h4> ${response.intschool}</section>
     `;
 }
 
